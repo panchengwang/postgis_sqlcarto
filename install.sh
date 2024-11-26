@@ -34,7 +34,7 @@ cd ${POSTGIS_SRC_PATH}
 os=$(uname | cut -c 1-5)
 
 if [ "$os" = "MINGW" ] ; then 
-make install
+    make install
 else
-sudo make install
+    sudo make install
 fi

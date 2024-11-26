@@ -58,7 +58,7 @@ insert into symbol_meta(english, chinese, sym) values('0','0','
                 },
                 {
                     "type": "text",
-                    "text": "5",
+                    "text": "0",
                     "fontfamily": "SimSun",
                     "fontsize": 0.8,
                     "anchor": {
@@ -1738,88 +1738,6 @@ insert into symbol_meta(english, chinese, sym) values('9','九','
     ]
 }');
 
-insert into symbol_meta(english, chinese, sym) values('arc3points','三点定弧','
-{
-    "offset": {
-        "x": 0,
-        "y": 0
-    },
-    "size": 5,
-    "shapes": [
-        {
-            "type": "path",
-            "stroke": {
-                "color": {
-                    "alpha": 255,
-                    "red": 127,
-                    "green": 127,
-                    "blue": 127
-                },
-                "width": 0.3,
-                "dashoffset": 0,
-                "dashes": [
-                    1.0,
-                    0
-                ],
-                "cap": "butt",
-                "join": "miter",
-                "miter": 10.0
-            },
-            "fill": {
-                "type": "solid",
-                "color": {
-                    "alpha": 255,
-                    "red": 255,
-                    "green": 255,
-                    "blue": 127
-                }
-            },
-            "subpaths": [
-                {
-                    "type": "arc3points",
-                    "offset": {
-                        "x": 0,
-                        "y": 0
-                    },
-                    "rotate": 0,
-                    "begin": {
-                        "x": -0.8,
-                        "y": 0
-                    },
-                    "middle": {
-                        "x": 0,
-                        "y": 0.8
-                    },
-                    "end": {
-                        "x": 0.8,
-                        "y": 0
-                    }
-                },
-                {
-                    "type": "arc3points",
-                    "offset": {
-                        "x": 0,
-                        "y": 0
-                    },
-                    "rotate": 0,
-                    "begin": {
-                        "x": -0.8,
-                        "y": 0
-                    },
-                    "middle": {
-                        "x": 0,
-                        "y": 0.2
-                    },
-                    "end": {
-                        "x": 0.8,
-                        "y": 0
-                    }
-                }
-            ]
-        }
-    ]
-}');
-
 insert into symbol_meta(english, chinese, sym) values('arc','弧','
 {
     "offset": {
@@ -1937,6 +1855,18 @@ insert into symbol_meta(english, chinese, sym) values('circle','圆','
     },
     "size": 5,
     "shapes": [
+        {
+            "type": "systemfill",
+            "fill": {
+                "type": "solid",
+                "color": {
+                    "alpha": 255,
+                    "red": 255,
+                    "green": 0,
+                    "blue": 0
+                }
+            }
+        },
         {
             "type": "path",
             "stroke": {
@@ -2154,6 +2084,88 @@ insert into symbol_meta(english, chinese, sym) values('linestring','折线','
                 }
             ],
             "closed": true
+        }
+    ]
+}');
+
+insert into symbol_meta(english, chinese, sym) values('new moon','新月','
+{
+    "offset": {
+        "x": 0,
+        "y": 0
+    },
+    "size": 5,
+    "shapes": [
+        {
+            "type": "path",
+            "stroke": {
+                "color": {
+                    "alpha": 255,
+                    "red": 127,
+                    "green": 127,
+                    "blue": 127
+                },
+                "width": 0.3,
+                "dashoffset": 0,
+                "dashes": [
+                    1.0,
+                    0
+                ],
+                "cap": "butt",
+                "join": "miter",
+                "miter": 10.0
+            },
+            "fill": {
+                "type": "solid",
+                "color": {
+                    "alpha": 255,
+                    "red": 255,
+                    "green": 255,
+                    "blue": 127
+                }
+            },
+            "subpaths": [
+                {
+                    "type": "arc3points",
+                    "offset": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "rotate": 0,
+                    "begin": {
+                        "x": -0.8,
+                        "y": 0
+                    },
+                    "middle": {
+                        "x": 0,
+                        "y": 0.8
+                    },
+                    "end": {
+                        "x": 0.8,
+                        "y": 0
+                    }
+                },
+                {
+                    "type": "arc3points",
+                    "offset": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "rotate": 0,
+                    "begin": {
+                        "x": 0.8,
+                        "y": 0
+                    },
+                    "middle": {
+                        "x": 0,
+                        "y": 0.4
+                    },
+                    "end": {
+                        "x": -0.8,
+                        "y": 0
+                    }
+                }
+            ]
         }
     ]
 }');

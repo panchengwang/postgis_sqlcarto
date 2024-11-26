@@ -27,7 +27,8 @@ OBJS = sqlcarto.o \
 	china_proj.o \
 	china_trans.o \
 	bytea2cstring.o \
-	symbol_inout.o
+	symbol_inout.o \
+	canvas.o
 
 # Libraries to link into the module (proj, geos)
 #
@@ -45,11 +46,14 @@ SHLIB_LINK_F = @top_builddir@/libpgcommon/libpgcommon.a @top_builddir@/liblwgeom
 CURL_INCLUDES = $(shell pkg-config libcurl --cflags)
 CURL_LIBS = $(shell pkg-config libcurl --libs)
 
-SKIA_C_INCLUDES = -I$(shell pg_config --includedir)
-SKIA_C_LIBS = -L$(shell pg_config --bindir) -lskia_c
+# SKIA_C_INCLUDES = -I$(shell pg_config --includedir)
+# SKIA_C_LIBS = -L$(shell pg_config --bindir) -lskia_c
 
-JSON_C_INCLUDES = $(shell pkg-config --cflags)
-JSON_C_LIBS = $(shell pkg-config --libs)
+CAIRO_INCLUDES = $(shell pkg-config cairo --cflags)
+CAIRO_LIBS = $(shell pkg-config cairo --libs)
+
+JSON_C_INCLUDES = $(shell pkg-config json-c --cflags)
+JSON_C_LIBS = $(shell pkg-config json-c --libs)
 
 SYMBOL_C_INCLUDES = -I$(shell pg_config --includedir)/mapsymbol_c -I$(shell pg_config --includedir)/mapsymbol
 SYMBOL_C_LIBS = -L$(shell pg_config --libdir) -L$(shell pg_config --bindir) -lmapsymbol_c
@@ -58,12 +62,14 @@ SYMBOL_C_LIBS = -L$(shell pg_config --libdir) -L$(shell pg_config --bindir) -lma
 PG_CPPFLAGS += \
 	$(CURL_INCLUDES) \
 	$(JSON_C_INCLUDES) \
-	$(SYMBOL_C_INCLUDES)
+	$(SYMBOL_C_INCLUDES) \
+	$(CAIRO_INCLUDES)
 
 SHLIB_LINK_F += \
 	$(CURL_LIBS) \
 	$(JSON_C_LIBS)	\
-	$(SYMBOL_C_LIBS)
+	$(SYMBOL_C_LIBS) \
+	$(CAIRO_LIBS)
 
 # Add SFCGAL Flags if defined
 ifeq (@SFCGAL@,sfcgal)
